@@ -23,12 +23,13 @@ const DropDownItem = ({ active, onClick, children }) => {
     const className = `dropdown-item ${hoverClassname} ${activeClassName}`;
 
     return (
-        <a className={className} href="#" 
+        <button type="button"
+            className={className}  
             onClick={onClick} 
             onMouseEnter={() => setHover(true)} 
             onMouseLeave={() => setHover(false)}>
             {children}
-        </a>
+        </button>
     );
 }
 
