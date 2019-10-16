@@ -23,7 +23,12 @@ export async function getBondData(isin, interval) {
 export function generateBondData(isin, interval) {
   const dateEnd = new Date();
 
-  const numIntervals = getRandom(100, 200);
+  let numIntervals = getRandom(10, 20);
+  if (interval === TIME_INTERVAL.Max){
+    interval = TIME_INTERVAL.Year;
+    numIntervals = getRandom(15, 25);
+  }
+
   let dateStart = changeDate(new Date(), interval, numIntervals, -1);
 
   let startDataItem = getNextDataItem();
@@ -78,6 +83,7 @@ function changeDate(date, interval, numIntervals, direction) {
 
   switch (interval) {
 
+    case TIME_INTERVAL.Max:
     case TIME_INTERVAL.Week:
       newDate.setDate(newDate.getDate() + 7 * numIntervals * direction);
       break;
@@ -92,6 +98,9 @@ function changeDate(date, interval, numIntervals, direction) {
 
     case TIME_INTERVAL.Year:
       newDate.setFullYear(newDate.getFullYear() + 1 * numIntervals * direction);
+      break;
+  
+    default:
       break;
   }
 

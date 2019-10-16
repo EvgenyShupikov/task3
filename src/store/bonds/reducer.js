@@ -16,13 +16,14 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         loading: true,
+        data: [],
         lastErrorText: undefined
       }
 
     case ACTION_TYPES.fetchDataSuccess:
       return {
         ...state,
-        data: action.data,
+        data: action.payload,
         loading: false
       }
 

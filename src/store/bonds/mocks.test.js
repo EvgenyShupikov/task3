@@ -34,7 +34,7 @@ describe('Bond mocks', () => {
     expect(bondData.dateEnd).toBeInstanceOf(Date);
     expect(bondData.dateEnd.valueOf()).toBeGreaterThan(bondData.dateStart.valueOf());
     expect(bondData.data).toBeDefined();
-    expect(bondData.data.length).toBeGreaterThan(100);
+    expect(bondData.data.length).toBeGreaterThanOrEqual(10);
 
     done();
   })
