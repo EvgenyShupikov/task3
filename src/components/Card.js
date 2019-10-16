@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from './Button';
+
 
 function Card() {
   return (
@@ -19,11 +21,11 @@ function Card() {
 
       {/* buttons */}
       <div class="btn-group btn-group-sm mb-3">
-        <button type="button" class="btn btn-outline-dark">Week</button>
-        <button type="button" class="btn btn-dark">Month</button>
-        <button type="button" class="btn btn-outline-dark">Quarter</button>
-        <button type="button" class="btn btn-outline-dark">Year</button>
-        <button type="button" class="btn btn-outline-dark">Max</button>
+        <Button color="dark">Week</Button>
+        <Button color="dark" outline={false}>Month</Button>
+        <Button color="dark">Quarter</Button>
+        <Button color="dark">Year</Button>
+        <Button color="dark">Max</Button>
       </div>
 
       <div className="position-relative">
