@@ -1,4 +1,4 @@
-export const BOND_DATA = {
+export const BOND_DATA_TYPE = {
   Yield: 'yield',
   Spread: 'spread',
   Price: 'price'

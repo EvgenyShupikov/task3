@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonGroupTimeInterval from './ButtonGroupTimeInterval';
-import { TIME_INTERVAL } from '../store/bonds/types';
+import { TIME_INTERVAL, BOND_DATA_TYPE } from '../store/bonds/types';
+import DropDownBondDataType from './DropDownBondDataType';
 
 
 function Card() {
@@ -31,17 +32,7 @@ function Card() {
         {/* data type */}
         <div className="position-absolute fixed-bottom">
           <div className="float-right mr-3 mb-3">
-            <div class="dropdown show">
-              <button type="button" class="btn btn-sm btn-dark dropdown-toggle">
-                Price
-              </button>
-
-              <div class="dropdown-menu dropdown-menu-right show">
-                <a class="dropdown-item" href="#">Yield</a>
-                <a class="dropdown-item" href="#">Spread</a>
-                <a class="dropdown-item" href="#">Price</a>
-              </div>
-            </div>
+            <DropDownBondDataType menuAlign="right" selectedValue={BOND_DATA_TYPE.Price} />
           </div>
         </div>
       </div>
