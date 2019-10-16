@@ -2,8 +2,10 @@ import { TIME_INTERVAL } from './types';
 
 
 /**
- * 
+ * Генерирует случайную последовательность данных
  * @param {string} isin идентификатор облигации
+ * @param {TIME_INTERVAL} TIME_INTERVAL тип интервала
+ * @returns {object} 'ответ сервера'
  */
 export async function getBondData(isin, interval) {
   return new Promise((resolve, reject) => {
@@ -15,7 +17,7 @@ export async function getBondData(isin, interval) {
       catch (ex) {
         reject(ex);
       }
-    }, getRandom(100, 1000));
+    }, getRandom(0, 200));
   });
 }
 
