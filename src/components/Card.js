@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from './Button';
+import ButtonGroupTimeInterval from './ButtonGroupTimeInterval';
+import { TIME_INTERVAL } from '../store/bonds/types';
 
 
 function Card() {
@@ -20,13 +21,7 @@ function Card() {
       <hr />
 
       {/* buttons */}
-      <div class="btn-group btn-group-sm mb-3">
-        <Button color="dark">Week</Button>
-        <Button color="dark" outline={false}>Month</Button>
-        <Button color="dark">Quarter</Button>
-        <Button color="dark">Year</Button>
-        <Button color="dark">Max</Button>
-      </div>
+      <ButtonGroupTimeInterval selectedValue={TIME_INTERVAL.Month} />
 
       <div className="position-relative">
 
