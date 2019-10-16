@@ -29,7 +29,7 @@ function Card({ isin, bondData, reloadBondData }) {
     if (isin) {
       reloadBondData(isin, chartInterval);
     }
-  }, [isin, chartInterval, chartDataType, reloadBondData]);
+  }, [isin, chartInterval, reloadBondData]);
 
   return (
     <div>
@@ -54,7 +54,9 @@ function Card({ isin, bondData, reloadBondData }) {
       <div className="position-relative">
 
         {/* chart */}
-        <Chart data={bondData.data} timeInterval={chartInterval} />
+        <Chart data={bondData.data} 
+          timeInterval={chartInterval} 
+          dataType={chartDataType} />
 
         {/* data type */}
         <div className="position-absolute fixed-bottom">
