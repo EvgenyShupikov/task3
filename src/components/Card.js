@@ -2,6 +2,7 @@ import React from 'react';
 import ButtonGroupTimeInterval from './ButtonGroupTimeInterval';
 import { TIME_INTERVAL, BOND_DATA_TYPE } from '../store/bonds/types';
 import DropDownBondDataType from './DropDownBondDataType';
+import Header from './Header';
 
 
 function Card() {
@@ -9,15 +10,13 @@ function Card() {
     <div>
 
       {/* header */}
-      <div className="h1">
-        NII CAPITAL 7.625 21
-          {' '}
-        <span className="small">USD</span>
-      </div>
-      <div>
-        <span className="d-block">US67021BAE92</span>
-        <span className="d-block">NII CAPITAL CORP, Telecommunications, NR, till 01.04.2016</span>
-      </div>
+      <Header isin={'US67021BAE92'}
+        shortName={'NII CAPITAL'} 
+        fillName={'NII CAPITAL CORP, Telecommunications, NR'}
+        yieldValue={7.625}
+        price={21} 
+        currency={'USD'} 
+        date={new Date()} />
 
       <hr />
 
