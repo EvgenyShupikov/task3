@@ -10,7 +10,7 @@ function App() {
     <Provider store={store}>
       <div className="App">
         <div className="container">
-          <Card />
+          <Card isin={'US67021BAE92'} />
         </div>
       </div>
     </Provider>

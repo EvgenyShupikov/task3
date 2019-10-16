@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import ButtonGroupTimeInterval from './ButtonGroupTimeInterval';
 import { TIME_INTERVAL, BOND_DATA_TYPE } from '../store/bonds/types';
 import DropDownBondDataType from './DropDownBondDataType';
@@ -9,22 +10,33 @@ import { getBondData } from '../store/bonds/selectors';
 import { updateBondData } from '../store/bonds/actions';
 
 
-function Card({ bondData, reloadBondData }) {
+const propTypes = {
+  isin: PropTypes.string,
+};
+
+
+const defaultProps = {
+  isin: '',
+};
+
+
+function Card({ isin, bondData, reloadBondData }) {
 
   const [chartInterval, setChartInterval] = useState(TIME_INTERVAL.Month);
   const [chartDataType, setChartDataType] = useState(BOND_DATA_TYPE.Price);
 
-  const isin = 'fake';
+  useEffect(() => {
+    if (isin) {
+      reloadBondData(isin, chartInterval);
+    }
+  }, [isin, chartInterval, chartDataType, reloadBondData]);
 
-  useEffect(() => {    
-    reloadBondData(isin, chartInterval);
-  }, [chartInterval, chartDataType, reloadBondData]);
-  
   return (
     <div>
 
       {/* header */}
-      <Header isin={'US67021BAE92'}
+      <Header isin={isin}
+        // TODO следующие props должны приходить из API
         shortName={'NII CAPITAL'}
         fillName={'NII CAPITAL CORP, Telecommunications, NR'}
         yieldValue={7.625}
@@ -56,6 +68,10 @@ function Card({ bondData, reloadBondData }) {
     </div>
   );
 }
+
+
+Card.propTypes = propTypes;
+Card.defaultProps = defaultProps;
 
 
 const mapStateToProps = (state) => {
